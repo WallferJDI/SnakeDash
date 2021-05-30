@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SnakeMovement : MonoBehaviour
+public class SnakeMain : MonoBehaviour
 {
     public float tailOffset;
     public float Speed;
     public float rotateSpeed;
     public List<GameObject> tails = new List<GameObject>();
     public GameObject TailPrefab;
+    public Vector3 newTailPos;
 
     void Start()
     {
@@ -29,11 +30,14 @@ public class SnakeMovement : MonoBehaviour
     }
     public void AddTail()
     {
-        Vector3 newTailPos = tails[tails.Count - 1].transform.position;
+        newTailPos = tails[tails.Count - 1].transform.position;
         newTailPos.z -= tailOffset;
 
         tails.Add(GameObject.Instantiate(TailPrefab, newTailPos, Quaternion.identity) as GameObject);
-
         
+    }
+    public void Fever()
+    {
+        Debug.Log("start");
     }
 }

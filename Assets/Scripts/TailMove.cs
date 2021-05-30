@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
+
 using UnityEngine;
 
 public class TailMove : MonoBehaviour
@@ -8,12 +6,12 @@ public class TailMove : MonoBehaviour
     public float Speed;
     private int id;
     public GameObject lastTailObj;
-    public Vector3 lastTail;
-    public SnakeMovement mainSnake;
+    public SnakeMain mainSnake;
+    public Vector3 offset;
     
     void Start()
     {
-        mainSnake = GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMovement>();
+        mainSnake = GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMain>();
         Speed = mainSnake.rotateSpeed;
         lastTailObj = mainSnake.tails[mainSnake.tails.Count - 2];
         id = mainSnake.tails.IndexOf(gameObject);
@@ -23,8 +21,9 @@ public class TailMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        lastTail = lastTailObj.transform.position;
-        transform.LookAt(lastTail);
-        transform.position = Vector3.Lerp(transform.position, lastTail, Time.deltaTime * Speed);
+        
+        // lastTail = lastTailObj.transform.position;
+        // transform.LookAt(lastTail);
+        transform.position = Vector3.Lerp(transform.position, lastTailObj.transform.position, Time.deltaTime * Speed);
     }
 }

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{56878602-2070-2F33-9693-A17687E963A1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -58,10 +59,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\TailMove.cs" />
-    <Compile Include="Assets\Scripts\SnakeMovement.cs" />
+    <Compile Include="Assets\Scripts\SnakeMain.cs" />
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\ReColor.cs" />
+    <Compile Include="Assets\Scripts\Spike.cs" />
+    <Compile Include="Assets\Scripts\Crystal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
