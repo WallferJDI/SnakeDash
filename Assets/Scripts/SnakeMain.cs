@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,8 +37,13 @@ public class SnakeMain : MonoBehaviour
         tails.Add(GameObject.Instantiate(TailPrefab, newTailPos, Quaternion.identity) as GameObject);
         
     }
-    public void Fever()
+  public void Fever()
     {
-        Debug.Log("start");
+        Vector3 centerPosition = transform.position;
+        centerPosition.x = 0;
+        transform.position = Vector3.Lerp(transform.position, centerPosition, Time.deltaTime * rotateSpeed);
+       
+        
     }
+    
 }

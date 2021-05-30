@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
-    private int crystalFever;
-    SnakeMain mainSnake;
+    private static int crystalFever;
+    SnakeMain snakeMain;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SnakeMain"))
         {
             GameController.crystalCount++;
             crystalFever++;
-            if (crystalFever == 3)
-            {
-                mainSnake.Fever();
-            }
+            
             Destroy(gameObject);
         }
     }
+    public void FixedUpdate()
+    {
+        if (crystalFever == 3) {
+            StartCoroutine(FeverCourutine());
+            
+        }
+
+    }
+    IEnumerator FeverCourutine()
+    {
+        GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMain>().Fever();
+        yield return new WaitForSeconds(5);
+        crystalFever = 0;
+    }
+
 }
