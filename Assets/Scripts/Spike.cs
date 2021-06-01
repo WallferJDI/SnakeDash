@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-   
-    void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("SnakeMain"))
+        if (collision.gameObject.tag == "SnakeMain")
         {
             if (SnakeMain.feverActive == true)
             {

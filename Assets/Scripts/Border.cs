@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Border : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("SnakeMain"))
+        if (collision.gameObject.tag == "SnakeMain")
         {
 
             GameController.reloadScene();
 
         }
     }
-}
+    }

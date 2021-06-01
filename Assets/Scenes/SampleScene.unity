@@ -5406,7 +5406,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453789386}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -7035,7 +7035,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917840485}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -8210,7 +8210,7 @@ PrefabInstance:
     - target: {fileID: 2372915898822184597, guid: b35698386e72e03489c92a629d128ba3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.16
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 2372915898822184597, guid: b35698386e72e03489c92a629d128ba3,
         type: 3}
@@ -8255,7 +8255,7 @@ PrefabInstance:
     - target: {fileID: 6697305461654877203, guid: b35698386e72e03489c92a629d128ba3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -8406,9 +8406,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
         type: 3}
+      propertyPath: m_Radius
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0060222945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.08328378
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 25caff030ee16f6499d921fe90aa2a44,
+        type: 2}
     - target: {fileID: 1720320498810623402, guid: 6fede2428bed7bd47aa292ed556acb27,
         type: 3}
       propertyPath: m_IsTrigger
@@ -8442,7 +8468,7 @@ PrefabInstance:
     - target: {fileID: 8327062292803104790, guid: 6fede2428bed7bd47aa292ed556acb27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.565
+      value: 0.728
       objectReference: {fileID: 0}
     - target: {fileID: 8327062292803104790, guid: 6fede2428bed7bd47aa292ed556acb27,
         type: 3}
@@ -8507,6 +8533,7 @@ MonoBehaviour:
   tailOffset: 0.2
   Speed: 9
   rotateSpeed: 9
+  maxSpeed: 0
   tails: []
   TailPrefab: {fileID: 7317881516963567626, guid: 5e543d67589c8cd4b8f47a4eb59dee21,
     type: 3}
