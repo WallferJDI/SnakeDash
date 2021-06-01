@@ -8532,7 +8532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tailOffset: 0.2
   Speed: 9
-  rotateSpeed: 9
+  rotateSpeed: 15
   maxSpeed: 0
   tails: []
   TailPrefab: {fileID: 7317881516963567626, guid: 5e543d67589c8cd4b8f47a4eb59dee21,

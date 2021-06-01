@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,8 @@ public class SnakeMain : MonoBehaviour
     public Vector3 newTailPos;
     
     public static int crystalFever;
-   
+    public static bool feverActive;
+
     private float SpeedFever;
     private float standartSpeed;
     Rigidbody rb;
@@ -30,22 +32,45 @@ public class SnakeMain : MonoBehaviour
         tails.Add(gameObject);
 
     }
+    void Awake()
+    {
+        width = (float)Screen.width / 2.0f;
+        height = (float)Screen.height / 2.0f;
 
+        // Position used for the cube.
+        position = new Vector3(0.0f, 0.0f, 0.0f);
+    }
+
+    private Vector3 position;
+    private float width;
+    private float height;
+    bool GetTouch() { return Input.GetMouseButton(0); }
     void FixedUpdate()
     {
    
         rb.velocity = transform.forward * Speed;
         if (Input.GetKey(KeyCode.D)&& feverActive == false)
-            transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
+           transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.A)&& feverActive==false)
-            transform.Translate(Vector3.left * rotateSpeed * Time.deltaTime);
+           transform.Translate(Vector3.left * rotateSpeed * Time.deltaTime);
 
-
+       if (GetTouch())
+        {
+            if (SnakeMain.feverActive == false)
+            {
+                Vector3 pos = Input.mousePosition;
+                pos.x = (pos.x - width) / width;
+                position = new Vector3(pos.x, 0.0f, 0.0f);
+                transform.Translate(position * rotateSpeed * Time.deltaTime);
+            }
+        }
+    }
+    private void Update()
+    {
         if (crystalFever == 3 || feverActive)
             Fever();
 
         crystalFeverUpdate();
-        
     }
     public void AddTail()
     {
@@ -58,7 +83,6 @@ public class SnakeMain : MonoBehaviour
 
     }
 
-    public static bool feverActive;
     private float timeForFever = 5f;
     public void Fever()
     {
@@ -75,13 +99,15 @@ public class SnakeMain : MonoBehaviour
             feverActive = false;
             Debug.Log("UPDATE");
             timeForFever = 5f;
-         Speed = standartSpeed;
+            Speed = standartSpeed;
             crystalFever = 0;
          
         }
-           
+        
 
     }
+   
+    
     float feverUpdate = 5f;
     void crystalFeverUpdate()
     {
