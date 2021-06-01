@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 6
   lastTailObj: {fileID: 0}
-  lastTail: {x: 0, y: 0, z: 5}
   mainSnake: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
 --- !u!54 &-3477828635067090432
@@ -115,7 +114,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 2
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!135 &-4291799235597927781
 SphereCollider:

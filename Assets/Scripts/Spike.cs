@@ -1,17 +1,23 @@
 
-using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
+   
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "SnakeMain")
+        if (other.CompareTag("SnakeMain"))
         {
-            GameController.deadCount = 0;
-            GameController.crystalCount = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (SnakeMain.feverActive == true)
+            {
+                Destroy(gameObject);
+                return;
+
+            }
+
+            GameController.reloadScene();
+
         }
-            
     }
 }

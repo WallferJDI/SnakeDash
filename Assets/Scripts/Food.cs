@@ -12,16 +12,14 @@ public class Food : MonoBehaviour
         {
             thisColor = GetComponent<Renderer>().material.color;
             snakeColor = other.gameObject.GetComponent<Renderer>().material.color;
-            if (thisColor.Equals(snakeColor)){
+            if (thisColor.Equals(snakeColor) || SnakeMain.feverActive == true){
                 other.GetComponent<SnakeMain>().AddTail();
                 GameController.deadCount++;
                 Destroy(gameObject);
             }
             else
             {
-                GameController.deadCount = 0;
-                GameController.crystalCount = 0;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameController.reloadScene();
                 
             }
             

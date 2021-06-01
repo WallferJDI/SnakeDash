@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TailMove : MonoBehaviour
 {
-    public float Speed;
+    float Speed;
     private int id;
     public GameObject lastTailObj;
     public SnakeMain mainSnake;
@@ -12,7 +12,7 @@ public class TailMove : MonoBehaviour
     void Start()
     {
         mainSnake = GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMain>();
-        Speed = mainSnake.rotateSpeed;
+       
         lastTailObj = mainSnake.tails[mainSnake.tails.Count - 2];
         id = mainSnake.tails.IndexOf(gameObject);
 
@@ -21,7 +21,7 @@ public class TailMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        Speed = mainSnake.Speed;
         // lastTail = lastTailObj.transform.position;
         // transform.LookAt(lastTail);
         transform.position = Vector3.Lerp(transform.position, lastTailObj.transform.position, Time.deltaTime * Speed);
