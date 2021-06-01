@@ -56,15 +56,16 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Crystal.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\TailMove.cs" />
-    <Compile Include="Assets\Scripts\SnakeMain.cs" />
-    <Compile Include="Assets\Scripts\Swipe.cs" />
-    <Compile Include="Assets\Scripts\CameraControl.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\ReColor.cs" />
     <Compile Include="Assets\Scripts\Spike.cs" />
-    <Compile Include="Assets\Scripts\Crystal.cs" />
+    <Compile Include="Assets\Scripts\SnakeMain.cs" />
+    <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Swipe.cs" />
+    <Compile Include="Assets\Scripts\Border.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -32,7 +32,7 @@ public class SnakeMain : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-
+      
         if (Input.GetKey(KeyCode.D)&& feverActive == false)
             transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.A)&& feverActive==false)
