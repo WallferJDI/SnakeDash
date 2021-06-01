@@ -17,9 +17,12 @@ public class SnakeMain : MonoBehaviour
    
     private float SpeedFever;
     private float standartSpeed;
+    Rigidbody rb;
+    Vector3 direction;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         SpeedFever = Speed * 2;
         standartSpeed = Speed;
         tails.Add(gameObject);
@@ -30,10 +33,11 @@ public class SnakeMain : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.D)&& feverActive==false)
+        if (Input.GetKey(KeyCode.D)&& feverActive == false)
             transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.A)&& feverActive==false)
             transform.Translate(Vector3.left * rotateSpeed * Time.deltaTime);
+
 
         if (crystalFever == 3 || feverActive)
             Fever();
@@ -59,6 +63,7 @@ public class SnakeMain : MonoBehaviour
         feverActive = true;
         Vector3 centerPosition = transform.position;
         centerPosition.x = 0;
+        centerPosition.y = 0;
         transform.position = Vector3.Lerp(transform.position, centerPosition, Time.deltaTime * rotateSpeed);
         Speed = SpeedFever;
         timeForFever -= Time.deltaTime;
