@@ -9,8 +9,10 @@ public class SnakeMain : MonoBehaviour
     public float tailOffset;
     public float Speed;
     public float rotateSpeed;
+    public float maxSpeed;
     public List<GameObject> tails = new List<GameObject>();
     public GameObject TailPrefab;
+
     public Vector3 newTailPos;
     
     public static int crystalFever;
@@ -18,8 +20,8 @@ public class SnakeMain : MonoBehaviour
     private float SpeedFever;
     private float standartSpeed;
     Rigidbody rb;
-    Vector3 direction;
-
+ 
+    Color thisColor;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,8 +33,8 @@ public class SnakeMain : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-      
+   
+        rb.velocity = transform.forward * Speed;
         if (Input.GetKey(KeyCode.D)&& feverActive == false)
             transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.A)&& feverActive==false)
@@ -49,9 +51,11 @@ public class SnakeMain : MonoBehaviour
     {
         newTailPos = tails[tails.Count - 1].transform.position;
         newTailPos.z -= tailOffset;
+        thisColor = GetComponent<Renderer>().material.color;
 
         tails.Add(GameObject.Instantiate(TailPrefab, newTailPos, Quaternion.identity) as GameObject);
-        
+        tails[tails.Count - 1].gameObject.GetComponent<Renderer>().material.color = thisColor;
+
     }
 
     public static bool feverActive;
@@ -63,7 +67,6 @@ public class SnakeMain : MonoBehaviour
         feverActive = true;
         Vector3 centerPosition = transform.position;
         centerPosition.x = 0;
-        centerPosition.y = 0;
         transform.position = Vector3.Lerp(transform.position, centerPosition, Time.deltaTime * rotateSpeed);
         Speed = SpeedFever;
         timeForFever -= Time.deltaTime;
