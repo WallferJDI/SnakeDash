@@ -5,24 +5,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class SnakeMain : MonoBehaviour
 {
-    public float tailOffset;
+    [SerializeField] private float tailOffset;
     public float Speed;
     public float rotateSpeed;
-    public float maxSpeed;
     public List<GameObject> tails = new List<GameObject>();
-    public GameObject TailPrefab;
-
-    public Vector3 newTailPos;
-    
+    [SerializeField] private GameObject TailPrefab;
     public static int crystalFever;
     public static bool feverActive;
+
 
     private float SpeedFever;
     private float standartSpeed;
     Rigidbody rb;
- 
+
     Color thisColor;
     void Start()
     {
@@ -35,35 +33,42 @@ public class SnakeMain : MonoBehaviour
     void Awake()
     {
         width = (float)Screen.width / 2.0f;
-        height = (float)Screen.height / 2.0f;
-
-        // Position used for the cube.
         position = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     private Vector3 position;
     private float width;
-    private float height;
+    Vector3 TouchPosition() { return Input.mousePosition; }
     bool GetTouch() { return Input.GetMouseButton(0); }
+
+
+
     void FixedUpdate()
     {
-   
-        rb.velocity = transform.forward * Speed;
-        if (Input.GetKey(KeyCode.D)&& feverActive == false)
-           transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.A)&& feverActive==false)
-           transform.Translate(Vector3.left * rotateSpeed * Time.deltaTime);
 
-       if (GetTouch())
+        rb.velocity = transform.forward * Speed;
+        if (Input.GetKey(KeyCode.D) && feverActive == false)
+            transform.Translate(Vector3.right * rotateSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.A) && feverActive == false)
+            transform.Translate(Vector3.left * rotateSpeed * Time.deltaTime);
+
+        if (GetTouch())
         {
             if (SnakeMain.feverActive == false)
             {
-                Vector3 pos = Input.mousePosition;
+
+                Vector2 pos = TouchPosition();
                 pos.x = (pos.x - width) / width;
                 position = new Vector3(pos.x, 0.0f, 0.0f);
-                transform.Translate(position * rotateSpeed * Time.deltaTime);
+                position += transform.position;
+
+
+                transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * rotateSpeed);
+
             }
+
         }
+   
     }
     private void Update()
     {
@@ -72,6 +77,8 @@ public class SnakeMain : MonoBehaviour
 
         crystalFeverUpdate();
     }
+
+    private Vector3 newTailPos;
     public void AddTail()
     {
         newTailPos = tails[tails.Count - 1].transform.position;

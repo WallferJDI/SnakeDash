@@ -64,8 +64,8 @@
     <Compile Include="Assets\Scripts\SnakeMain.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\Border.cs" />
+    <Compile Include="Assets\Scripts\Finish.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

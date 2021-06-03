@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3ff2e363382044b2c7d7152a0afa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inpactEffect: {fileID: 3959865667291378698, guid: 45249c231d988004fae65b55ce20ab1e,
+    type: 3}
 --- !u!65 &6697305461654877203
 BoxCollider:
   m_ObjectHideFlags: 0

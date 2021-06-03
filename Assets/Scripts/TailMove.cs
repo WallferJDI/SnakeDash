@@ -18,10 +18,9 @@ public class TailMove : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Speed = mainSnake.Speed+1;
-        transform.position = Vector3.Lerp(transform.position, lastTailObj.transform.position, Time.deltaTime * Speed);
+        Speed = mainSnake.Speed;
+        transform.position = Vector3.Lerp(transform.position, lastTailObj.transform.position + offset, Time.deltaTime * Speed);
     }
 }

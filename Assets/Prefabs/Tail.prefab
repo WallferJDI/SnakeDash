@@ -96,10 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a9a185a599324597f46d6ba2c10db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
   lastTailObj: {fileID: 0}
   mainSnake: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0.2}
 --- !u!54 &-3477828635067090432
 Rigidbody:
   m_ObjectHideFlags: 0
